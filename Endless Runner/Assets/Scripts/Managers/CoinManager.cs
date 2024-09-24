@@ -6,12 +6,15 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     [SerializeField] GameObject Coin;
+    [SerializeField] List<GameObject> Coins;    
 
     [SerializeField] float offset = 2.5f;
     [SerializeField] int createCount = 16;
 
     private void Awake()
     {
+        Coins.Capacity = 20;
+
         Create();            
     }
 
@@ -24,11 +27,13 @@ public class CoinManager : MonoBehaviour
             clone.transform.SetParent(gameObject.transform);
 
             clone.transform.localPosition = new Vector3(0, Coin.transform.position.y, offset * i);
+        
+            Coins.Add(clone);
         }
     }
 
     public void InitializePosition()
     {
-
+        
     }
 }
