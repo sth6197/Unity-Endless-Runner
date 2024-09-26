@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    void ExeCute()
+    public void ExeCute()
     {
-                        
+        StartCoroutine(SceneryManager.Instance.AsyncLoad(1));                        
     }
 
-    void Shop()
+    public void Shop()
     {
-
+        Debug.Log("Shop");
     }
 
-    void Quit()
+    public void Quit()
     {
-
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
