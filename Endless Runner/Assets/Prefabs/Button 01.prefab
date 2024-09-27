@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 0}
+  enterAudioClip: {fileID: 8300000, guid: b3cecd78a9ea1884b83e0a7e129dca17, type: 3}
 --- !u!114 &-1946598035820255417
 MonoBehaviour:
   m_ObjectHideFlags: 0
