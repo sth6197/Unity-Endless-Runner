@@ -14,6 +14,7 @@ public enum RoadLine
 
 public class Runner : MonoBehaviour
 {
+    [SerializeField] Animator animator;
     [SerializeField] RoadLine roadline;
     [SerializeField] Rigidbody rigidBody;
 
@@ -23,6 +24,7 @@ public class Runner : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -42,6 +44,7 @@ public class Runner : MonoBehaviour
         {
             if(roadline != RoadLine.LEFT)
             {
+                animator.Play("left avoid");
                 roadline--;
             }
         }
@@ -50,6 +53,7 @@ public class Runner : MonoBehaviour
         {
             if(roadline != RoadLine.RIGHT)
             {
+                animator.Play("right avoid");
                 roadline++;
             }
         }
