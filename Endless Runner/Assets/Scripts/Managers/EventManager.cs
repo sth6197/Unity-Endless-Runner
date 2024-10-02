@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,15 +19,41 @@ public class EventManager
     private static readonly IDictionary<EventType, UnityEvent> dictionary =
         new Dictionary<EventType, UnityEvent>();
 
-    public static void Subscribe(EventType eventType, UnityAction action)
+    public static void Subscribe(EventType eventType, UnityAction unityAction)
     {
-        if(dictionary.ContainsKey(eventType) == false)
+        UnityEvent unityEvent = null;
+
+        if(dictionary.TryGetValue(eventType, out unityEvent))
         {
-            dictionary.Add(eventType, new UnityEvent());
+            unityEvent.AddListener(unityAction);
         }
         else
         {
-            dictionary[eventType].AddListener(action);
+            unityEvent = new UnityEvent();
+
+            unityEvent.AddListener(unityAction);
+
+            dictionary.Add(eventType, unityEvent);
+        }
+    }
+
+    public static void UnSubscribe(EventType eventType, UnityAction unityAction)
+    {
+        UnityEvent unityEvent = null;
+
+        if(dictionary.TryGetValue(eventType, out unityEvent))
+        {
+            unityEvent.RemoveListener(unityAction);
+        }
+    }
+
+    public static void Publish(EventType eventType)
+    {
+        UnityEvent unityEvent = null;
+
+        if (dictionary.TryGetValue(eventType, out unityEvent))
+        {
+            unityEvent.Invoke();
         }
     }
 }

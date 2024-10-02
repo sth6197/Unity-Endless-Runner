@@ -7,6 +7,8 @@ public class MenuManager : MonoBehaviour
 {
     public void ExeCute()
     {
+        EventManager.Publish(EventType.START);
+
         StartCoroutine(SceneryManager.Instance.AsyncLoad(1));                        
     }
 

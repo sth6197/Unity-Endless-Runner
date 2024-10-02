@@ -8,7 +8,8 @@ public class State : MonoBehaviour
 
     protected void OnEnable()
     {
-        Debug.Log("이벤트 발생");
+        EventManager.Subscribe(EventType.START, OnExecute);
+        EventManager.Subscribe(EventType.STOP, OnStop);
     }
 
     protected void OnExecute()
@@ -23,6 +24,7 @@ public class State : MonoBehaviour
 
     protected void OnDisable()
     {
-        Debug.Log("이벤트 해제");
+        EventManager.UnSubscribe(EventType.START, OnExecute);
+        EventManager.UnSubscribe(EventType.STOP, OnStop);
     }
 }
