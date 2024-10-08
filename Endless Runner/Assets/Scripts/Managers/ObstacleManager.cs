@@ -62,7 +62,7 @@ public class ObstacleManager : MonoBehaviour
                 {
                     // 모든 게임 오브젝트가 활성화되어 있다면 게임 오브젝트를 새로 생성한 다음
                     // ObstacleList에 넣어줍니다.
-                    GameObject clone = ResourcesManager.Instance.Instantiate("Coin", gameObject.transform);
+                    GameObject clone = ResourcesManager.Instance.Instantiate("Cone", gameObject.transform);
 
                     clone.SetActive(false);
 
@@ -74,9 +74,11 @@ public class ObstacleManager : MonoBehaviour
 
                 random = (random + 1) % obstacleList.Count;
             }
-
-            // 랜덤으로 설정된 Obstacle 오브젝트를 활성화합니다.
-            obstacleList[random].SetActive(true);
         }
+    }
+
+    public GameObject GetObstacle()
+    {
+        return obstacleList[random];
     }
 }

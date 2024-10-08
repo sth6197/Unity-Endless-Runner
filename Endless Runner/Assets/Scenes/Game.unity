@@ -1921,6 +1921,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b556b912d7900b746adb287a373a9bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: -1
+  parentRoads:
+  - {fileID: 144318915}
+  - {fileID: 1330027046}
+  - {fileID: 1405539439}
+  - {fileID: 923469224}
+  positionRandomX:
+  - {fileID: 2006425713}
+  - {fileID: 1802126018}
+  - {fileID: 136842001}
+  obstacleManager: {fileID: 1848258338}
   randomPositionZ:
   - 0
   - 0
@@ -1938,12 +1949,6 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  index: -1
-  parentRoads:
-  - {fileID: 144318915}
-  - {fileID: 1330027046}
-  - {fileID: 1405539439}
-  - {fileID: 923469224}
 --- !u!4 &2052254210
 Transform:
   m_ObjectHideFlags: 0

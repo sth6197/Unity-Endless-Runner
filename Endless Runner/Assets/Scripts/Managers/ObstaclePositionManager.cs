@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class ObstaclePositionManager : MonoBehaviour
 {
-    [SerializeField] float[] randomPositionZ = new float[16];
+    private Coroutine coroutine;
 
     [SerializeField] int index = -1;
-    [SerializeField] Transform[] parentRoads; 
+
+    [SerializeField] Transform[] parentRoads;
+    [SerializeField] Transform[] positionRandomX;
+    [SerializeField] ObstacleManager obstacleManager;
+
+    [SerializeField] float[] randomPositionZ = new float[16];
+
 
     private void Awake()
     {
@@ -25,5 +31,27 @@ public class ObstaclePositionManager : MonoBehaviour
         transform.SetParent(parentRoads[index]);
 
         transform.localPosition += new Vector3(0, 0, 40);
+
+        if(coroutine == null)
+        {
+            Debug.Log("Coroutine");
+            coroutine = StartCoroutine(SetPosition());
+        }
+    }
+
+    public IEnumerator SetPosition()
+    {
+        while (true)
+        {
+            yield return CoroutineCache.WaitForSecond(2.5f);
+
+            transform.localPosition = new Vector3(0, 0, randomPositionZ[Random.Range(0, randomPositionZ.Length)]);
+
+            obstacleManager.GetObstacle().SetActive(true);
+
+            obstacleManager.GetObstacle().transform.position = positionRandomX[Random.Range(0, positionRandomX.Length)].position;
+
+            obstacleManager.GetObstacle().transform.SetParent(transform.root.GetChild(index));
+        }
     }
 }
