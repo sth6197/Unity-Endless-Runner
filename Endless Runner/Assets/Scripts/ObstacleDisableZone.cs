@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class ObstacleDisableZone : MonoBehaviour
 {
-    
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        Obstacle obstacle = other.GetComponent<Obstacle>();
 
-    
-    void Update()
-    {
-        
+        if(obstacle != null )
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }

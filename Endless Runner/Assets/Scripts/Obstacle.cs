@@ -1,17 +1,12 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour, IHitable
 {
-    Obstacle obstacle;
-
-    private void OnTriggerEnter(Collider other)
+    public void Activate()
     {
-        if(other.gameObject.activeSelf)
-        {
-            obstacle = other.GetComponent<Obstacle>();
-            other.gameObject.SetActive(false);
-        }
+        EventManager.Publish(EventType.STOP);
     }
 }

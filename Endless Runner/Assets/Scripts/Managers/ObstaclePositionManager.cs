@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ObstaclePositionManager : MonoBehaviour
+public class ObstaclePositionManager : State
 {
     private Coroutine coroutine;
 
@@ -34,14 +34,13 @@ public class ObstaclePositionManager : MonoBehaviour
 
         if(coroutine == null)
         {
-            Debug.Log("Coroutine");
             coroutine = StartCoroutine(SetPosition());
         }
     }
 
     public IEnumerator SetPosition()
     {
-        while (true)
+        while (state == true)
         {
             yield return CoroutineCache.WaitForSecond(2.5f);
 

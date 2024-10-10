@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ObstacleManager : MonoBehaviour
+public class ObstacleManager : State
 {
     [SerializeField] List<GameObject> obstacleList;
 
     [SerializeField] int createCount = 5;
     [SerializeField] int random;
-
 
     void Start()
     {
@@ -47,7 +46,7 @@ public class ObstacleManager : MonoBehaviour
 
     public IEnumerator ActiveObstacle()
     {
-        while (true)
+        while (state == true)
         {
             yield return CoroutineCache.WaitForSecond(2.5f);
 
