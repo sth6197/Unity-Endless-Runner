@@ -371,6 +371,7 @@
 "Assets/Scripts/Managers/MouseManager.cs"
 "Assets/Scripts/Managers/ObstacleManager.cs"
 "Assets/Scripts/Managers/ObstaclePositionManager.cs"
+"Assets/Scripts/Managers/PopUpManager.cs"
 "Assets/Scripts/Managers/ResourcesManager.cs"
 "Assets/Scripts/Managers/RoadManager.cs"
 "Assets/Scripts/Managers/SceneryManager.cs"

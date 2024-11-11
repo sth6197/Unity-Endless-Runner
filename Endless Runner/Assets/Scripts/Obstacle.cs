@@ -5,8 +5,20 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour, IHitable
 {
+    private PopUpManager popUpManager;
+
+    void Start()
+    {
+        popUpManager = FindObjectOfType<PopUpManager>();
+    }
+
     public void Activate()
     {
-        EventManager.Publish(EventType.STOP);
+        if (popUpManager != null)
+        {      
+            EventManager.Publish(EventType.STOP);
+            popUpManager.ShowGameOverUI();
+        }
+
     }
 }

@@ -60,6 +60,11 @@ public class Runner : State
                 roadline++;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.Play("Jump");
+        }
     }
 
     private void Move()
