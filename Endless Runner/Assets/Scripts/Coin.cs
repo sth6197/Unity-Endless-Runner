@@ -5,12 +5,15 @@ using UnityEngine;
 public class Coin : State, IHitable
 {
     [SerializeField] GameObject rotationGameObject;
+    [SerializeField] AudioClip audioClip;
 
     [SerializeField] float speed;
 
     public void Activate()
     {
         gameObject.SetActive(false);
+
+        AudioManager.Instance.Listen(audioClip);
     }
     
     private new void OnEnable()

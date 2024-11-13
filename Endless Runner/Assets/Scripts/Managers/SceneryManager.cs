@@ -40,7 +40,7 @@ public class SceneryManager : Singleton<SceneryManager>
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index);
 
         // { allowSceneActivation }
-        // Àå¸éÀÌ ÁØºñµÈ Áï½Ã Àå¸éÀÌ È°¼ºÈ­µÇ´Â °ÍÀ» Çã¿ëÇÏ´Â º¯¼öÀÔ´Ï´Ù.
+        // ì¥ë©´ì´ ì¤€ë¹„ëœ ì¦‰ì‹œ ì¥ë©´ì´ í™œì„±í™”ë˜ëŠ” ê²ƒì„ í—ˆìš©í•˜ëŠ” ë³€ìˆ˜ì…ë‹ˆë‹¤. 
         asyncOperation.allowSceneActivation = false;
 
         Color color = screenImage.color;
@@ -48,14 +48,14 @@ public class SceneryManager : Singleton<SceneryManager>
         color.a = 0;
 
         // { isDone }
-        // ÇØ´ç µ¿ÀÛÀÌ ¿Ï·áµÇ¾ú´ÂÁö ³ªÅ¸³»´Â º¯¼öÀÔ´Ï´Ù. (ÀĞ±â Àü¿ë)
+        // í•´ë‹¹ ë™ì‘ì´ ì™„ë£Œë˜ì—ˆëŠ”ì§€ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜ì…ë‹ˆë‹¤. (ì½ê¸° ì „ìš©) 
         while (asyncOperation.isDone == false)
         {
             color.a += Time.deltaTime;
             screenImage.color = color;
 
             // { progress }
-            // ÀÛ¾÷ÀÇ ÁøÇà »óÅÂ¸¦ ³ªÅ¸³»´Â º¯¼öÀÔ´Ï´Ù. (ÀĞ±â Àü¿ë)
+            // ì‘ì—…ì˜ ì§„í–‰ ìƒíƒœë¥¼ ë‚˜íƒ€ë‚´ëŠ” ë³€ìˆ˜ì…ë‹ˆë‹¤. (ì½ê¸° ì „ìš©) 
             if(asyncOperation.progress >= 0.9f)
             {
                 color.a = Mathf.Lerp(color.a, 1f, Time.deltaTime);
@@ -79,7 +79,7 @@ public class SceneryManager : Singleton<SceneryManager>
         StartCoroutine(FadeIn());
     }
 
-  private void OnDisable()
+    private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }

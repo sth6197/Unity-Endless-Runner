@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+
     public void ExeCute()
     {
         EventManager.Publish(EventType.START);
@@ -13,9 +16,14 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(SceneryManager.Instance.AsyncLoad(1));                        
     }
 
-    public void Shop()
+    public void Setting()
     {
-        Debug.Log("Shop");
+        EventManager.Publish(EventType.SETTING);
+    }
+
+    public void OpenSettingUI()
+    {
+        SettingManager.Instance.ShowSettingUI();
     }
 
     public void Quit()

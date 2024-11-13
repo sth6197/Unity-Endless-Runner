@@ -9,6 +9,7 @@ public enum EventType
     START,
     CONTINUE,
     PAUSE,
+    SETTING,
     STOP
 }
 

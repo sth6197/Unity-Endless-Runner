@@ -40,6 +40,5 @@ public class CoinManager : MonoBehaviour
         {
             clone.SetActive(true);
         }
-
     }
 }

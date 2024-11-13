@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum RoadLine
 {
@@ -21,10 +22,14 @@ public class Runner : State
     [SerializeField] float speed = 25.0f;
     [SerializeField] float positionX = 2.5f;
 
+    public Text txt;
+    public int score;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
+        txt = GameObject.Find("ScoreShow").GetComponent<Text>();
     }
 
     private new void OnEnable()
@@ -32,6 +37,9 @@ public class Runner : State
         base.OnEnable();
 
         InputManager.Instance.action += OnkeyUpdate;
+
+        score = 0;
+        txt.text = "Score : " + score;
     }
 
     void Start()
@@ -98,6 +106,12 @@ public class Runner : State
         if (hitable != null)
         {
             hitable.Activate();
+        }
+        
+        if(other.CompareTag("Coin"))
+        {
+            score += 1;
+            txt.text = "Score : " + score;
         }
     }
 }

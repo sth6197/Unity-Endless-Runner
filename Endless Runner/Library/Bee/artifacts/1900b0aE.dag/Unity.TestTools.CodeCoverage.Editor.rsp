@@ -116,6 +116,7 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:CONDITIONAL_IGNORE_SUPPORTED
+-define:BURST_INSTALLED
 -define:TEST_FRAMEWORK_1_1_18_OR_NEWER
 -define:NO_COV_EDITORPREF
 -define:CSHARP_7_OR_LATER
@@ -406,7 +407,7 @@
 /nowarn:1701
 /nowarn:1702
 /utf8output
-/preferreduilang:en-US
+/preferreduilang:ko
 
 -warn:0
 
