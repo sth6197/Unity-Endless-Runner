@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PopUpManager : MonoBehaviour
 {
     [SerializeField] private GameObject Popup;
     [SerializeField] private GameObject GameOverUI;
+    [SerializeField] private GameObject GameWinUI;
     [SerializeField] AudioClip pauseSound;
+
+    private SaveDataManager saveDataManager;
 
     private bool isVisible = false;
     private bool isGameOver = false;
+    private bool isGameWin = false;
+
+    private void Awake()
+    {
+        saveDataManager = FindObjectOfType<SaveDataManager>(); // 세이브 데이터 매니저를 찾아서 저장
+    }
 
     private void Start()
     {
@@ -23,19 +33,31 @@ public class PopUpManager : MonoBehaviour
         {
             GameOverUI.SetActive(isGameOver);
         }
+
+        if(GameWinUI != null)   // UI 기본 비활성화
+        {
+            GameWinUI.SetActive(isGameWin);
+        }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))  // ESC키를 누르면 
         {
-            if(isGameOver)
+            if(isGameOver)  // GameOverUI가 활성화 됐다면
             {
-                GameOverUI.SetActive(false);
+                GameOverUI.SetActive(false);    // 비활성화
                 isGameOver = false;
             }
 
-            // 게임 오버 UI를 비활성화 하면서 팝업창 오픈 
+            if (isGameWin) // GameWinUI가 활성화 됐다면
+            {
+                GameWinUI.SetActive(false); // 비활성화
+                isGameWin = false;
+                OnMainMenu();   // title 씬으로 돌아가기
+            }
+
+            // UI를 비활성화 하면서 팝업창 오픈 
             TogglePopUp();
         }
     }
@@ -86,12 +108,29 @@ public class PopUpManager : MonoBehaviour
         }
     }
 
+    private void ToggleGameWinUI() // 게임 승리 UI 호출 함수
+    {
+        isGameWin = !isGameWin;
+
+        if (isGameWin && GameWinUI != null && !GameWinUI.activeSelf)
+        {
+            GameWinUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else if (!isGameWin && GameWinUI != null && GameWinUI.activeSelf)
+        {
+            GameWinUI.SetActive(false);
+
+            Time.timeScale = 1f;
+        }
+    }
+
     public void OnRestart() // 게임 다시 시작 함수 
     {
         Time.timeScale = 1f;
 
         // Game 씬 다시 호출 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Game");
     }
 
     public void OnResume()  // 게임 재개 함수 
@@ -103,7 +142,14 @@ public class PopUpManager : MonoBehaviour
     {
         Time.timeScale = 1f;    // 게임 속도 1배속 
 
-        SceneManager.LoadScene("Title");    // 타이틀 씬 호출 
+        StartCoroutine(LoadTitleScene());    // 타이틀 씬 호출 
+    }
+
+    private IEnumerator LoadTitleScene()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        SceneManager.LoadScene("Title");
     }
 
     public void OnExit()    // 게임 종료 함수 
@@ -117,8 +163,27 @@ public class PopUpManager : MonoBehaviour
 
     public void ShowGameOverUI()    // 게임 오버 UI 활성화 함수 
     {
+        if(saveDataManager != null)
+        {
+            saveDataManager.AddScore(1); // 게임 오버시 점수 저장
+            saveDataManager.SaveData(); // 저장
+        }
+
         isGameOver = true;
         GameOverUI.SetActive(true);
+        Time.timeScale = 0.5f;
+    }
+
+    public void ShowGameWinUI()
+    {
+        if(saveDataManager != null)
+        {
+            saveDataManager.AddScore(1); // 게임 승리시 점수 저장
+            saveDataManager.SaveData(); // 저장
+        }
+
+        isGameWin = true;
+        GameWinUI.SetActive(true);
         Time.timeScale = 0f;
     }
 }

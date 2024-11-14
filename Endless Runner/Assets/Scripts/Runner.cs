@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class Runner : State
     [SerializeField] float speed = 25.0f;
     [SerializeField] float positionX = 2.5f;
 
+    private PopUpManager popUpManager;
+
     public Text txt;
     public int score;
 
@@ -29,47 +32,49 @@ public class Runner : State
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
-        txt = GameObject.Find("ScoreShow").GetComponent<Text>();
+        txt = GameObject.Find("ScoreShow").GetComponent<Text>(); // 점수판을 보여줄 UI 찾기
+
+        popUpManager = GameObject.FindObjectOfType<PopUpManager>();
     }
 
-    private new void OnEnable()
+    private new void OnEnable() // 활성화
     {
         base.OnEnable();
 
-        InputManager.Instance.action += OnkeyUpdate;
+        InputManager.Instance.action += OnkeyUpdate;    // 게임 시작시 키 입력 가능
 
-        score = 0;
-        txt.text = "Score : " + score;
+        score = 0;  // 점수 0부터 시작
+        txt.text = "Score : " + score; // 점수 증가
     }
 
     void Start()
     {
-        roadline = RoadLine.MIDDLE;
+        roadline = RoadLine.MIDDLE; // 기본 위치
     }
 
-    void OnkeyUpdate()
+    void OnkeyUpdate()  // 키 누르면 이동과 애니메이션 재생
     {
         if (state == false) return;
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))    // 방향키 ← 를 눌렀을 때
         {
-            if(roadline != RoadLine.LEFT)
+            if(roadline != RoadLine.LEFT)   // 현재 위치가 RoadLine.LEFT가 아니라면
             {
-                animator.Play("left avoid");
-                roadline--;
+                animator.Play("left avoid"); // 왼쪽이동 애니메이션 재생
+                roadline--; // 왼쪽으로 이동, roadline 배열 인덱스 감소, 딱 RoadLine.LEFT까지만 이동 가능하도록
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow)) // 방향키 → 를 눌렀을 때
         {
-            if(roadline != RoadLine.RIGHT)
+            if (roadline != RoadLine.RIGHT)  // 현재위치가 RoadLine.RIGHT가 아니라면
             {
-                animator.Play("right avoid");
-                roadline++;
+                animator.Play("right avoid"); // 오른쪽 이동 애니메이션 재생
+                roadline++; // 오른쪽으로 이동, roadline 배열 인덱스 증가, 딱 RoadLine.RIGHT까지만 이동 가능하도록
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.Play("Jump");
         }
@@ -77,11 +82,11 @@ public class Runner : State
 
     private void Move()
     {
-        rigidBody.position = Vector3.Lerp
+        rigidBody.position = Vector3.Lerp // 부드럽게 이동, Vector3 간의 선형 보간 이동
         (
             rigidBody.position, 
-            new Vector3((int)roadline * positionX, 0, 0), 
-            speed * Time.fixedDeltaTime
+            new Vector3((int)roadline * positionX, 0, 0), // roadline의 int 형변환, X축 이동
+            speed * Time.fixedDeltaTime // 속도를 FixedUpdate 에서 참조할 것이므로 fixedDeltaTime 사용해서 속도 보정
         );
     }
 
@@ -89,10 +94,10 @@ public class Runner : State
     {
         if (state == false) return;
 
-        Move();
+        Move(); // 리지드바디, 일정한 간격으로 움직임을 업데이트 하기위해 fixedupdate 사용
     }
 
-    private new void OnDisable()
+    private new void OnDisable()    // 비활성화 호출
     {
         base.OnDisable();
 
@@ -107,11 +112,21 @@ public class Runner : State
         {
             hitable.Activate();
         }
-        
+
         if(other.CompareTag("Coin"))
         {
             score += 1;
             txt.text = "Score : " + score;
+
+            SaveDataManager.instance.AddScore(1);
+
+            if(score == 1000)
+            {
+                if(popUpManager != null)
+                {
+                    popUpManager.ShowGameWinUI();
+                }
+            }
         }
     }
 }
