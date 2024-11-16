@@ -11,26 +11,24 @@ public class SaveDataManager : MonoBehaviour
     private Text totalScoreText;
     private int totalScore;
 
-    private string saveFilepath; // 저장 파일 경로
-    private SaveData saveData;
+    string saveFilepath; // 저장 파일 경로
+    string filename = "SaveData"; // 저장 파일이름
+    SaveData saveData;
 
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
-
-            DontDestroyOnLoad(gameObject);  // 객체 유지
         }
         else
         {
             Destroy(gameObject); // 중복 방지
         }
-        
+        DontDestroyOnLoad(gameObject);  // 객체 유지
         LoadData(); // 게임이 시작될 때 데이터를 불러온다.
     }
 
-    
     public void SetText(Text scoretext)
     {
         totalScoreText = scoretext;
@@ -45,17 +43,15 @@ public class SaveDataManager : MonoBehaviour
     public void SaveData()
     {
         string json = JsonUtility.ToJson(saveData, true);
-        saveFilepath = Path.Combine(Application.dataPath, "SaveData.json"); // 저장 경로
-        File.WriteAllText(saveFilepath, json);
+        saveFilepath = Application.persistentDataPath + "/"; // 저장 경로
+        File.WriteAllText(saveFilepath + filename, json);
     }
 
     public void LoadData()
     {
-        saveFilepath = Path.Combine(Application.persistentDataPath, "SaveData.json");
-
-        if (File.Exists(saveFilepath))
+        if (File.Exists(saveFilepath)) // 세이브 파일이 존재한다면
         {
-            string json = File.ReadAllText(saveFilepath); // 파일에서 json 읽어오기
+            string json = File.ReadAllText(saveFilepath + filename); // 파일에서 json 읽어오기
             saveData = JsonUtility.FromJson<SaveData>(json); // json 데이터를 객체로 변환
         }
         else
@@ -74,9 +70,9 @@ public class SaveDataManager : MonoBehaviour
 
     public void UpdateTotalScore()
     {
-        if(totalScoreText != null)
+        if(totalScoreText != null) // 점수 기록
         {
-            totalScoreText.text = "Total Score \n" + saveData.totalScore.ToString();
+            totalScoreText.text = "Total Score \n" + saveData.totalScore.ToString(); // 총 점수 기록
         }
     }
 

@@ -128,5 +128,10 @@ public class Runner : State
                 }
             }
         }
+
+        if(other.CompareTag("Cone"))
+        {
+            animator.Play("Flying Back Death");
+        }
     }
 }
