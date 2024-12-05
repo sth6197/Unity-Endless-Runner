@@ -221,11 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4683698668909184810, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4683698668909184810, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4683698669332398923, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,6 +270,14 @@ PrefabInstance:
     - target: {fileID: 4683698669332398924, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
       propertyPath: m_Name
       value: Third Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683698669332398924, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683698669332398924, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4445364456129386198, guid: 6b19efc6a63f9c94fafd3f793df0a41b, type: 3}
@@ -370,19 +378,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4683698668909184810, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4683698668909184810, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4683698669108245250, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4683698669108245250, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4683698669332398923, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,6 +435,14 @@ PrefabInstance:
     - target: {fileID: 4683698669332398924, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
       propertyPath: m_Name
       value: Fourth Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683698669332398924, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683698669332398924, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 255586137965376912, guid: 2d987f2b0d738fb44adb14961a153d93, type: 3}
@@ -1132,23 +1148,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7873187647249179468, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7873187647249179468, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7873187647313680228, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7873187647313680228, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7873187647639627562, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
       propertyPath: m_Name
       value: Second Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873187647639627562, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873187647639627562, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7873187647639627565, guid: 55bba2d385895d543ab91aaff7bbc0e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2566,19 +2590,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1259621166955109130, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1259621166955109130, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2109670776930311043, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2109670776930311043, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2109670777337831394, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2623,6 +2647,14 @@ PrefabInstance:
     - target: {fileID: 2109670777337831397, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
       propertyPath: m_Name
       value: First Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109670777337831397, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109670777337831397, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7828429299272351004, guid: e4c6cda078ba603449663a7a97e598ed, type: 3}
@@ -2722,9 +2754,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2136055783}
   - component: {fileID: 2136055782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Road Manager
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5107,6 +5139,7 @@ MonoBehaviour:
   rigidBody: {fileID: 4424314630441162821}
   speed: 25
   positionX: 4
+  JumpPower: 60
   txt: {fileID: 1835723520}
   score: 0
 --- !u!136 &4424314630441162820
@@ -5142,7 +5175,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

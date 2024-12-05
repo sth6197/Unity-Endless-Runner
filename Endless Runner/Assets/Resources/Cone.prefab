@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 53077988511343196}
   - component: {fileID: 5636334879172763947}
   - component: {fileID: 9020176565514924666}
-  - component: {fileID: 7453110845415989580}
+  - component: {fileID: 1236121004733051485}
   m_Layer: 0
   m_Name: Cone
   m_TagString: Cone
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0895c1df72ace849a7cef6d476b524d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &7453110845415989580
-BoxCollider:
+--- !u!135 &1236121004733051485
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,5 +116,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7848643, y: 0.92120963, z: 0.82525516}
-  m_Center: {x: 0, y: 0.46033975, z: -0.000000029802322}
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.4, z: -0.000000029802322}

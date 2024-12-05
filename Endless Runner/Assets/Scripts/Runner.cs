@@ -22,6 +22,9 @@ public class Runner : State
 
     [SerializeField] float speed = 25.0f;
     [SerializeField] float positionX = 2.5f;
+    [SerializeField] float JumpPower = 60f;
+
+    bool isJump;
 
     private PopUpManager popUpManager;
 
@@ -35,6 +38,8 @@ public class Runner : State
         txt = GameObject.Find("ScoreShow").GetComponent<Text>(); // 점수판을 보여줄 UI 찾기
 
         popUpManager = GameObject.FindObjectOfType<PopUpManager>();
+
+        rigidBody.useGravity = true; //게임 시작시 중력 활성화
     }
 
     private new void OnEnable() // 활성화
@@ -76,7 +81,12 @@ public class Runner : State
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.Play("Jump");
+            if(isJump == false) //점프가 false 라면
+            {
+                isJump = true; //점프를 true 하고
+                rigidBody.AddForce(Vector3.up * JumpPower, ForceMode.Impulse); //순간적으로 힘을 줘서 점프
+                animator.Play("Jump"); //점프 애니메이션 재생
+            }
         }
     }
 
@@ -89,12 +99,16 @@ public class Runner : State
             speed * Time.fixedDeltaTime // 속도를 FixedUpdate 에서 참조할 것이므로 fixedDeltaTime 사용해서 속도 보정
         );
     }
-
     private void FixedUpdate()
     {
         if (state == false) return;
 
         Move(); // 리지드바디, 일정한 간격으로 움직임을 업데이트 하기위해 fixedupdate 사용
+
+        if (rigidBody.velocity.y < 0) // 캐릭터가 하강 중일 때
+        {
+            rigidBody.velocity += Vector3.up * Physics.gravity.y * 2f * Time.fixedDeltaTime; // 중력 가속도 추가
+        }
     }
 
     private new void OnDisable()    // 비활성화 호출
@@ -129,9 +143,20 @@ public class Runner : State
             }
         }
 
-        if(other.CompareTag("Cone"))
+        if (other.CompareTag("Cone"))
         {
-            animator.Play("Flying Back Death");
+            animator.Play("Flying Back Death"); //사망 애니메이션 재생
+
+            //장애물에 부딪히고 게임오버 될 때 캐릭터 y값, 회전값 고정
+            rigidBody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground") //캐릭터 콜라이더와 닿는 오브젝트의 태그가 Ground일 경우
+        {
+            isJump = false; //연속해서 점프할 수 없도록 false
         }
     }
 }
