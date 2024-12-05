@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638671852323463677
-    m_Hash: 3908396735
+      ticks: 638682284817148869
+    m_Hash: 2213166477
   m_LockFileStatus:
     m_FilePath: C:/Users/PC/Desktop/Unity-Endless-Runner/Endless Runner/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638671852323488284
-    m_Hash: 4099352550
+      ticks: 638682284817158879
+    m_Hash: 1550151832
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
