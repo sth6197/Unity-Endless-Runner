@@ -69,7 +69,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Runtime.dll:
-    - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineGlobalSettings
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -81,10 +80,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -178,18 +175,6 @@ ScriptsOnlyBuild:
     methodName: OnSelect
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
-    methodName: ExeCute
-  - assembly: Assembly-CSharp
-    fullTypeName: SelectButton
-    methodName: OnEnter
-  - assembly: Assembly-CSharp
-    fullTypeName: SelectButton
-    methodName: OnLeave
-  - assembly: Assembly-CSharp
-    fullTypeName: SelectButton
-    methodName: OnSelect
-  - assembly: Assembly-CSharp
-    fullTypeName: MenuManager
     methodName: Setting
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
@@ -206,6 +191,18 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MenuManager
     methodName: Quit
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectButton
+    methodName: OnEnter
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectButton
+    methodName: OnLeave
+  - assembly: Assembly-CSharp
+    fullTypeName: SelectButton
+    methodName: OnSelect
+  - assembly: Assembly-CSharp
+    fullTypeName: MenuManager
+    methodName: ExeCute
   - assembly: Assembly-CSharp
     fullTypeName: SettingManager
     methodName: Set1920x1080
@@ -399,43 +396,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3342}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4864}
     - Class: 114
-      Script: {instanceID: 5478}
+      Script: {instanceID: 5480}
     - Class: 114
-      Script: {instanceID: 6692}
+      Script: {instanceID: 6694}
     - Class: 114
-      Script: {instanceID: 7468}
+      Script: {instanceID: 7470}
     - Class: 114
-      Script: {instanceID: 8950}
+      Script: {instanceID: 8952}
     - Class: 114
-      Script: {instanceID: 9012}
+      Script: {instanceID: 9014}
     - Class: 114
-      Script: {instanceID: 9130}
+      Script: {instanceID: 9132}
     - Class: 114
-      Script: {instanceID: 9728}
+      Script: {instanceID: 9730}
     - Class: 114
-      Script: {instanceID: 10068}
+      Script: {instanceID: 10070}
     - Class: 114
-      Script: {instanceID: 10630}
+      Script: {instanceID: 10632}
     - Class: 114
-      Script: {instanceID: 10920}
+      Script: {instanceID: 10922}
     - Class: 114
-      Script: {instanceID: 11304}
+      Script: {instanceID: 11306}
     - Class: 114
-      Script: {instanceID: 11828}
+      Script: {instanceID: 11830}
     - Class: 114
-      Script: {instanceID: 12216}
+      Script: {instanceID: 12218}
     - Class: 114
-      Script: {instanceID: 12302}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12676}
+      Script: {instanceID: 12678}
     - Class: 114
-      Script: {instanceID: 12916}
+      Script: {instanceID: 12918}
     - Class: 114
-      Script: {instanceID: 12952}
+      Script: {instanceID: 12954}
     - Class: 114
-      Script: {instanceID: 13424}
+      Script: {instanceID: 13428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -532,106 +529,108 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4242}
     - Class: 114
-      Script: {instanceID: 5056}
+      Script: {instanceID: 4374}
     - Class: 114
-      Script: {instanceID: 5104}
+      Script: {instanceID: 5058}
     - Class: 114
-      Script: {instanceID: 5232}
+      Script: {instanceID: 5106}
     - Class: 114
-      Script: {instanceID: 5406}
+      Script: {instanceID: 5234}
     - Class: 114
-      Script: {instanceID: 5424}
+      Script: {instanceID: 5408}
     - Class: 114
-      Script: {instanceID: 5924}
+      Script: {instanceID: 5426}
     - Class: 114
-      Script: {instanceID: 6004}
+      Script: {instanceID: 5926}
     - Class: 114
-      Script: {instanceID: 6120}
+      Script: {instanceID: 6006}
     - Class: 114
-      Script: {instanceID: 6194}
+      Script: {instanceID: 6122}
     - Class: 114
-      Script: {instanceID: 6582}
+      Script: {instanceID: 6196}
     - Class: 114
-      Script: {instanceID: 6636}
+      Script: {instanceID: 6584}
     - Class: 114
-      Script: {instanceID: 7288}
+      Script: {instanceID: 6638}
     - Class: 114
-      Script: {instanceID: 7510}
+      Script: {instanceID: 7290}
     - Class: 114
-      Script: {instanceID: 8516}
+      Script: {instanceID: 7512}
     - Class: 114
-      Script: {instanceID: 8558}
+      Script: {instanceID: 8518}
     - Class: 114
-      Script: {instanceID: 8588}
+      Script: {instanceID: 8560}
     - Class: 114
-      Script: {instanceID: 8732}
+      Script: {instanceID: 8590}
     - Class: 114
-      Script: {instanceID: 8774}
+      Script: {instanceID: 8734}
     - Class: 114
-      Script: {instanceID: 8816}
+      Script: {instanceID: 8776}
     - Class: 114
-      Script: {instanceID: 8950}
+      Script: {instanceID: 8818}
     - Class: 114
-      Script: {instanceID: 9130}
+      Script: {instanceID: 8952}
     - Class: 114
-      Script: {instanceID: 9838}
+      Script: {instanceID: 9132}
     - Class: 114
-      Script: {instanceID: 9906}
+      Script: {instanceID: 9840}
     - Class: 114
-      Script: {instanceID: 10068}
+      Script: {instanceID: 9908}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10070}
     - Class: 114
-      Script: {instanceID: 10234}
+      Script: {instanceID: 10166}
     - Class: 114
-      Script: {instanceID: 10280}
+      Script: {instanceID: 10236}
     - Class: 114
-      Script: {instanceID: 10546}
+      Script: {instanceID: 10282}
     - Class: 114
-      Script: {instanceID: 10614}
+      Script: {instanceID: 10548}
     - Class: 114
-      Script: {instanceID: 11240}
+      Script: {instanceID: 10616}
     - Class: 114
-      Script: {instanceID: 11262}
+      Script: {instanceID: 11242}
     - Class: 114
-      Script: {instanceID: 11320}
+      Script: {instanceID: 11264}
     - Class: 114
-      Script: {instanceID: 11504}
+      Script: {instanceID: 11322}
     - Class: 114
-      Script: {instanceID: 11764}
+      Script: {instanceID: 11506}
     - Class: 114
-      Script: {instanceID: 12072}
+      Script: {instanceID: 11766}
     - Class: 114
-      Script: {instanceID: 12218}
+      Script: {instanceID: 12074}
     - Class: 114
-      Script: {instanceID: 12302}
+      Script: {instanceID: 12220}
     - Class: 114
-      Script: {instanceID: 12314}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 12404}
+      Script: {instanceID: 12316}
     - Class: 114
-      Script: {instanceID: 12536}
+      Script: {instanceID: 12406}
     - Class: 114
-      Script: {instanceID: 12674}
+      Script: {instanceID: 12538}
     - Class: 114
-      Script: {instanceID: 12952}
+      Script: {instanceID: 12676}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 12954}
     - Class: 114
-      Script: {instanceID: 172068}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 190656}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 207978}
+      Script: {instanceID: 33864}
     - Class: 114
-      Script: {instanceID: 207986}
+      Script: {instanceID: 33872}
     - Class: 114
-      Script: {instanceID: 207988}
+      Script: {instanceID: 33874}
     - Class: 114
-      Script: {instanceID: 207990}
+      Script: {instanceID: 33876}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -828,7 +827,7 @@ ScriptsOnlyBuild:
     className: CinemachineVirtualCamera
   - hash:
       serializedVersion: 2
-      Hash: beedcd3349524192ec33a0136c54519b
+      Hash: 0ddd821958619c4f52238c22e51aae8b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SceneryManager
@@ -1110,6 +1109,12 @@ ScriptsOnlyBuild:
     className: GroupWeightManipulator
   - hash:
       serializedVersion: 2
+      Hash: 14ed2c2ea4aa407921536423e55140e9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SaveDataManager
+  - hash:
+      serializedVersion: 2
       Hash: 5321f58daa5797b2eac77b17ea0bb568
     assemblyName: Cinemachine
     namespaceName: Cinemachine
@@ -1278,7 +1283,7 @@ ScriptsOnlyBuild:
     className: UnityOnDeselectMessageListener
   - hash:
       serializedVersion: 2
-      Hash: e71b1d587bf27f5f2ad825caecd3518e
+      Hash: 708d71167d534b47d629f51bf20d1f8d
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Runner
@@ -2568,6 +2573,12 @@ ScriptsOnlyBuild:
     className: CompatibilityAssetBundleManifest
   - hash:
       serializedVersion: 2
+      Hash: 642d9e63e408f75da870e0c52ad4d20d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: TotalScore
+  - hash:
+      serializedVersion: 2
       Hash: a049c5dd35cb574ae69ebee47a5f1bb8
     assemblyName: Cinemachine
     namespaceName: Cinemachine
@@ -2614,20 +2625,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 14ed2c2ea4aa407921536423e55140e9
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: SaveDataManager
-  - hash:
-      serializedVersion: 2
-      Hash: 642d9e63e408f75da870e0c52ad4d20d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: TotalScore
   platform: 19
   scenePathNames:
   - Assets/Scenes/Title.unity
   - Assets/Scenes/Game.unity
-  playerPath: C:/Users/PC/Desktop/Bulid/Endless Runner.exe
+  playerPath: "C:/Users/PC/Desktop/\uC0C8 \uD3F4\uB354/Endless Runner.exe"
